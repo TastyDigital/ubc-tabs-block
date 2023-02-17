@@ -38,9 +38,9 @@
 
    wp_register_style(
         'ubc-tab-style-frontend',
-        plugins_url( '/build/frontend.css', __FILE__ ),
+        plugins_url( '/build/style-frontend.css', __FILE__ ),
         array('wp-editor'),
-        filemtime( plugin_dir_path( __FILE__ ) . 'build/frontend.css' )
+        filemtime( plugin_dir_path( __FILE__ ) . 'build/style-frontend.css' )
     );
     wp_enqueue_style( 'ubc-tab-style-frontend' );
  }

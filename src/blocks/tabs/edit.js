@@ -3,7 +3,7 @@
  */
 import TabsContext from './context';
 const { InspectorControls } = wp.blockEditor;
-const { PanelBody, PanelRow, Button, ButtonGroup } = wp.components;
+const { PanelBody, PanelRow, Button, ButtonGroup, ToggleControl, SelectControl } = wp.components;
 const { RichText, InnerBlocks } = wp.blockEditor;
 const { compose } = wp.compose;
 const { withDispatch, withSelect } = wp.data;
@@ -29,7 +29,7 @@ const Edit = ( props ) => {
 		rootId,
 		insertBlock,
 	} = props;
-	const { tabTitles, initialTabSelected, className } = attributes;
+	const { tabTitles, initialTabSelected, className, sideTabLayout, styleString } = attributes;
 	// Keep current selected tab in editor as a state defaults to initialSelected tab attribute.
 	const [ currentTabSelected, setCurrentTabSelected ] = useState(
 		initialTabSelected ? initialTabSelected : 0
@@ -182,7 +182,9 @@ const Edit = ( props ) => {
 			</div>
 		) : null;
 	};
-
+	const onChangeTabLabel = toggle => {
+		setAttributes({ sideTabLayout: toggle });
+	};
 	return (
 		<section className={ `ubc-accordion-tabs ${ className ? className : '' }` }>
 			<ul className="ubc-accordion-tabs__tab-list" role="tablist">
@@ -249,6 +251,29 @@ const Edit = ( props ) => {
 							);
 						} ) }
 					</ButtonGroup>
+					<hr />
+					<PanelRow>Tab Format</PanelRow>
+					<ToggleControl
+						label="Switch to side tab layout"
+						help={
+							sideTabLayout
+								? 'Side tab layout selected'
+								: 'Defoult layout'
+						}
+						checked={ sideTabLayout }
+						onChange={ onChangeTabLabel }
+					/>
+					<hr />
+					<PanelRow>Style options</PanelRow>
+					<SelectControl
+						label="Preferred style"
+						value={ styleString }
+						options={ [
+									{label: "Plain", value: 'plain'},
+									{label: "Colourful", value: 'colourful'}
+								] }
+						onChange={ (newval) => setAttributes({ styleString: newval }) }
+					/>
 				</PanelBody>
 			</InspectorControls>
 		</section>

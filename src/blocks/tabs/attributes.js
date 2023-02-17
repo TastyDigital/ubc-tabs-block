@@ -10,7 +10,15 @@ const attributes = {
 	initialTabSelected: {
 		type: 'number',
 		default: 0,
+	},		
+	sideTabLayout: {
+		type: "boolean",
+		default: false
 	},
+	styleString:{
+		type: "string",
+		default: "plain"	
+	}
 };
 
 export default attributes;

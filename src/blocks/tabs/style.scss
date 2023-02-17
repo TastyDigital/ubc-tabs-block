@@ -130,6 +130,7 @@
     &.tabs-allowed .ubc-accordion-tabs__tab-list {
       margin-bottom: -2px;
       display: flex;
+      padding-left: 0;
     }
   }
 
@@ -169,5 +170,24 @@
 
   .is-open .label--close {
     display: block;
+  }
+
+
+  &.side-tab-layout {
+    display: flex;
+    .ubc-accordion-tabs__tab-list {
+      display: flex;
+      flex-direction: column;
+      align-content: stretch;
+      margin-bottom: 0;
+    }
+    .ubc-accordion-tabs__tabs-panel {
+      flex:1;
+      .content {
+        width:100%;
+        border-width: 1px;
+        border-left-width: 0;
+      }
+    }
   }
 }

@@ -10,8 +10,8 @@
  * @wordpress-plugin
  * Plugin Name: UBC Tab Block
  * Plugin URI:  https://sauder.ubc.ca/
- * Description: Tab Block for UBC Sauder
- * Version:     1.0.0
+ * Description: Tab Block for UBC Sauder, extended for CMG by Tasty Digital.
+ * Version:     1.1.0
  * Author:      Christy Yao
  * Author URI:  https://christyyao.com
  * Text Domain: ubc-tab-block

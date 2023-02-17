@@ -83,4 +83,16 @@
       }
     }
   }
+  .side-tab-layout {
+    > .ubc-accordion-tabs__tab-list {
+      overflow: visible;
+    }
+      > .block-editor-inner-blocks {
+        flex:1;
+        padding-top: 50px !important;
+        .content.is-open {
+          height:100%;
+        }
+      } 
+  }
 }

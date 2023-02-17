@@ -172,22 +172,148 @@
     display: block;
   }
 
-
-  &.side-tab-layout {
-    display: flex;
-    .ubc-accordion-tabs__tab-list {
+  @media (min-width: 768px) {
+    &.side-tab-layout {
       display: flex;
-      flex-direction: column;
-      align-content: stretch;
-      margin-bottom: 0;
+      align-items: center;
+      .ubc-accordion-tabs__tab-list {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 0;
+        li a[role=tab], 
+        li button[role=tab] {
+          width:100%;
+
+          &::before {
+            content: none;
+          }
+          &.is-selected::before {
+            content:' ';
+            left: auto;
+            bottom: 0;
+            right: 0;
+            top: 0;
+            width: .5rem;
+            height: auto;
+          }
+
+          
+        }
+      }
+      .ubc-accordion-tabs__tabs-panel {
+        flex:1;
+        .content {
+          width:100%;
+          border-width: 1px;
+          border-left-width: 0;
+        }
+      }
+      &.tabs-style-colorful {
+        .ubc-accordion-tabs__tab-list {
+          li a[role=tab], 
+          li button[role=tab] {
+            &::before {
+              content: none;
+            }
+            &.is-selected::before {
+              content:' ';
+            }
+          }
+        }
     }
-    .ubc-accordion-tabs__tabs-panel {
-      flex:1;
-      .content {
-        width:100%;
-        border-width: 1px;
-        border-left-width: 0;
+
+    &.tabs-style-plain { 
+      border-style: solid;
+      border-color: var(--ubc-tabs-block-content-border-color, #d8d8d8);
+      border-width: 1px;
+      border-left-width: 0;
+      .ubc-accordion-tabs__tabs-panel .content {
+        border-width: 0;
       }
     }
   }
-}
+  }
+  &.tabs-style-colorful {
+    background-color:var(--wp--preset--color--primary);
+    color: var(--wp--preset--color--white);
+    .ubc-accordion-tabs__tabs-panel {
+      .content {
+        border-width: 0;
+        padding: 2rem;
+      }
+      > .ubc-accordion-tabs__accordion-trigger{
+        background-color:var(--wp--preset--color--light-green, get-color('light-green'));
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      &:nth-of-type(5n + 2) {
+        > .ubc-accordion-tabs__accordion-trigger{
+          background-color:var(--wp--preset--color--secondary, get-color('secondary'));
+      }}
+      &:nth-of-type(5n + 3) {
+        > .ubc-accordion-tabs__accordion-trigger{
+          background-color:var(--wp--preset--color--orange, get-color('orange'));
+      }}
+      &:nth-of-type(5n + 4) {
+        > .ubc-accordion-tabs__accordion-trigger{
+          background-color:var(--wp--preset--color--vivid-purple, get-color('vivid-purple'));
+      }}
+      &:nth-of-type(5n + 5) {
+        > .ubc-accordion-tabs__accordion-trigger{
+          background-color:var(--wp--preset--color--fuscia, get-color('fuscia'));
+      }}
+    }
+    .ubc-accordion-tabs__tab-list {
+      li {
+       // padding-right: .5rem;
+        a[role=tab],
+        button[role=tab] {
+          background-color:var(--wp--preset--color--light-green, get-color('light-green'));
+          color: var(--wp--preset--color--white);
+          text-align: center;
+          text-transform: uppercase;
+          font-weight: 700;
+          border-width: 0;
+          opacity: 1;
+          padding: 1rem 2rem;
+          font-size: 1.5rem;
+          &::before {
+            background: var(--wp--preset--color--white, get-color('white'));
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            top:auto;
+          }
+          &.is-selected::before {
+            content: none;
+          }
+        }
+        &:nth-of-type(5n + 2) {
+          a[role=tab],
+          button[role=tab] {
+            background-color:var(--wp--preset--color--secondary, get-color('secondary'));
+        }}
+        &:nth-of-type(5n + 3) {
+          a[role=tab],
+          button[role=tab] {
+            background-color:var(--wp--preset--color--orange, get-color('orange'));
+        }}
+        &:nth-of-type(5n + 4) {
+          a[role=tab],
+          button[role=tab] {
+            background-color:var(--wp--preset--color--vivid-purple, get-color('vivid-purple'));
+        }}
+        &:nth-of-type(5n + 5) {
+          a[role=tab],
+          button[role=tab] {
+            background-color:var(--wp--preset--color--fuscia, get-color('fuscia'));
+        }}
+      }
+      
+    }
+    }
+
+  }
+

@@ -1,7 +1,12 @@
 $ubc-color: (
-  "primary": #0075af,
+  "primary": #243341,
+  "secondary": #00a6bf,
   "border": #d8d8d8,
   "white": #ffffff,
+  "light-green": #a7be1f,
+  "orange": #f28b2e,
+  "vivid-purple":#a25bbf,
+  "fuscia":#e84160
 );
 
 @function get-color($color) {

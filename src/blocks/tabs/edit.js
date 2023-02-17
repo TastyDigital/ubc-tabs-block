@@ -186,7 +186,7 @@ const Edit = ( props ) => {
 		setAttributes({ sideTabLayout: toggle });
 	};
 	return (
-		<section className={ `ubc-accordion-tabs ${ className ? className : '' }` }>
+		<section className={ `ubc-accordion-tabs ${ className ? className : '' } tabs-style-${ styleString } ${ sideTabLayout ? 'side-tab-layout' : '' }` }>
 			<ul className="ubc-accordion-tabs__tab-list" role="tablist">
 				{ tabTitles.map( ( singleTitle, key ) => {
 					return (
@@ -270,7 +270,7 @@ const Edit = ( props ) => {
 						value={ styleString }
 						options={ [
 									{label: "Plain", value: 'plain'},
-									{label: "Colourful", value: 'colourful'}
+									{label: "Colourful", value: 'colorful'}
 								] }
 						onChange={ (newval) => setAttributes({ styleString: newval }) }
 					/>

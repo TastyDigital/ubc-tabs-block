@@ -1,0 +1,17 @@
+{
+    "name": "tastydigital/ubc-tabs-block",
+    "description": "Accessible Tab Block for UBC Sauder",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+          "name": "Toby Trembath",
+          "homepage": "https://tasty.digital"
+        },
+        {
+          "name": "Christy Yao",
+          "homepage": "https://christyyao.com"
+        }
+    ],
+     "minimum-stability": "dev-master"
+}

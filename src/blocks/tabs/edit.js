@@ -4,7 +4,7 @@
 import TabsContext from './context';
 const { InspectorControls } = wp.blockEditor;
 const { PanelBody, PanelRow, Button, ButtonGroup, ToggleControl, SelectControl } = wp.components;
-const { RichText, InnerBlocks } = wp.blockEditor;
+const { RichText, InnerBlocks, useBlockProps } = wp.blockEditor;
 const { compose } = wp.compose;
 const { withDispatch, withSelect } = wp.data;
 const { useState } = wp.element;
@@ -35,7 +35,9 @@ const Edit = ( props ) => {
 		initialTabSelected ? initialTabSelected : 0
 	);
 	const allowedBlocks = [ 'ubc/tab' ];
-
+	const blockProps = useBlockProps({
+		className: `ubc-accordion-tabs ${ className ? className : '' } tabs-style-${ styleString }  ${sideTabLayout && ' side-tab-layout'}`
+	});
 	/**
 	 * Render innerblocks { tab blocks } based on the length of tab titles array.
 	 */
@@ -186,7 +188,7 @@ const Edit = ( props ) => {
 		setAttributes({ sideTabLayout: toggle });
 	};
 	return (
-		<section className={ `ubc-accordion-tabs ${ className ? className : '' } tabs-style-${ styleString } ${ sideTabLayout ? 'side-tab-layout' : '' }` }>
+		<section { ...blockProps }>
 			<ul className="ubc-accordion-tabs__tab-list" role="tablist">
 				{ tabTitles.map( ( singleTitle, key ) => {
 					return (

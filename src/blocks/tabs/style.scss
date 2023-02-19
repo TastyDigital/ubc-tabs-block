@@ -175,7 +175,7 @@
   @media (min-width: 768px) {
     &.side-tab-layout {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       .ubc-accordion-tabs__tab-list {
         display: flex;
         flex-direction: column;
@@ -235,12 +235,15 @@
   }
   }
   &.tabs-style-colorful {
-    background-color:var(--wp--preset--color--primary);
-    color: var(--wp--preset--color--white);
     .ubc-accordion-tabs__tabs-panel {
+      background-color:var(--wp--preset--color--primary);
+      color: var(--wp--preset--color--white);
       .content {
         border-width: 0;
         padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
       > .ubc-accordion-tabs__accordion-trigger{
         background-color:var(--wp--preset--color--light-green, get-color('light-green'));

@@ -19,6 +19,12 @@ registerBlockType( 'ubc/tabs', {
 	keywords: [ __( 'tabs' ), __( 'ubc-tabs' ) ],
 	category: 'layout',
 	attributes,
+	supports: {
+		// Declare support for block's alignment.
+		// This adds support for all the options:
+		// left, center, right, wide, and full.
+		align: ['wide']
+	},
 	edit: Edit,
 	save: Save,
 } );

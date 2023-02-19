@@ -7,18 +7,10 @@ const { InnerBlocks, useBlockProps } = wp.blockEditor;
 const Save = ( props ) => {
 	const { attributes } = props;
 	const { tabTitles, initialTabSelected, className, sideTabLayout, styleString } = attributes;
-	let blockProps = useBlockProps.save();
-	const classes = `ubc-accordion-tabs ${ className ? className : '' } tabs-style-${ styleString }`;
+	const blockProps = useBlockProps.save({
+		className: `ubc-accordion-tabs ${ className ? className : '' } tabs-style-${ styleString }  ${sideTabLayout && ' side-tab-layout'}`
+	});
 
-	if (sideTabLayout){
-		blockProps = useBlockProps.save({
-			className: `side-tab-layout ${classes}`
-		});
-	}else{
-		blockProps = useBlockProps.save({
-			className: classes
-		});
-	}
 	return (
 		<section
 			data-selected-tab={ initialTabSelected }

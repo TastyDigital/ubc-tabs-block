@@ -33,7 +33,7 @@
         border-left-style: solid;
         text-decoration: none !important;
         line-height: 1.8;
-      
+        box-sizing: border-box;
         &.is-selected {
           background: var(--ubc-tabs-block-tab-nav-selected-background, get-color("white"));
           color: var(--ubc-tabs-block-tab-nav-selected-text-color, get-color("primary"));
